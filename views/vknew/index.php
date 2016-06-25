@@ -25,7 +25,14 @@ $this->title = 'Сводная таблица новых участников г
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            'vk_id',
+            [
+                'attribute'			=> 'vk_id',
+                'content'			=> 
+                function($model) {
+                    $url = 'https://vk.com/id' . $model->vk_id;
+                    return Html::a($url, $url);
+                },
+            ],
             'create_date',
             'vkgroup_url:url',
 

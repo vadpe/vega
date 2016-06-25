@@ -32,7 +32,7 @@ $this->title = 'Сводная таблица всех участников гр
                     $url = 'https://vk.com/id' . $model->vk_id;
                     return Html::a($url, $url);
                 },
-            ],            
+            ],
             'create_date',
             'vkgroup_url:url',
 
