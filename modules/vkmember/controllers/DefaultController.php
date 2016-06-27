@@ -1,18 +1,19 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\vkmember\controllers;
 
+//use yii\web\Controller;
 use Yii;
-use app\models\Vkmember;
-use app\models\VkmemberSearch;
+use app\modules\vkmember\models\Vkmember;
+use app\modules\vkmember\models\VkmemberSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * VkmemberController implements the CRUD actions for Vkmember model.
+ * Default controller for the `vkmember` module
  */
-class VkmemberController extends Controller
+class DefaultController extends Controller
 {
     /**
      * @inheritdoc
@@ -130,5 +131,5 @@ class VkmemberController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
+    }    
 }

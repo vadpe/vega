@@ -5,6 +5,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    //'controllerNamespace' => '\controllers',
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
@@ -37,16 +38,32 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
-        /*
+        'db' => require(__DIR__ . '/db.php'),        
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
+    
+    'modules' => [
+        
+        'vkgroup' => [
+            'class' => 'app\modules\vkgroup\Module',
+        ],
+        
+        'vkmember' => [
+            'class' => 'app\modules\vkmember\Module',
+        ],
+        
+        'vknew' => [
+            'class' => 'app\modules\vknew\Module',
+        ],
+    ],
+    
     'params' => $params,
 ];
 

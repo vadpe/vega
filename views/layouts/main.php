@@ -36,9 +36,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Таблица групп ВК', 'url' => ['/vkgroup/index']],
-            ['label' => 'Сводная таблица всех участников групп ВК', 'url' => ['/vkmember/index']],
-            ['label' => 'Сводная таблица новых участников групп ВК (с момента последнего запуска)', 'url' => ['/vknew/index']],
+            ['label' => 'Таблица групп ВК', 'url' => ['/vkgroup/default/index']],
+            ['label' => 'Сводная таблица всех участников групп ВК', 'url' => ['/vkmember/default/index']],
+            ['label' => 'Сводная таблица новых участников групп ВК (с момента последнего запуска)', 'url' => ['/vknew/default/index']],
             //['label' => 'Home', 'url' => ['/site/index']],
             //['label' => 'About', 'url' => ['/site/about']],
             //['label' => 'Contact', 'url' => ['/site/contact']],

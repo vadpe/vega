@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+//namespace app\modules\vkgroup\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
@@ -50,7 +51,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         //return $this->render('index');
-        return $this->redirect(['vkgroup/index']);
+        //return $this->redirect(['vkgroup/index']);
+        return $this->redirect(['/vkgroup/default/index']);
     }
 
     public function actionLogin()

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\modules\vkmember\models;
 
 use Yii;
 
 /**
- * This is the model class for table "vknew".
+ * This is the model class for table "vkmember".
  *
  * @property integer $id
  * @property integer $vk_id
@@ -14,14 +14,14 @@ use Yii;
  *
  * @property Vkgroup $vkgroupUrl
  */
-class Vknew extends \yii\db\ActiveRecord
+class Vkmember extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'vknew';
+        return 'vkmember';
     }
 
     /**

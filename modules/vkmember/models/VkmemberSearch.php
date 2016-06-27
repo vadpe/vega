@@ -1,11 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\modules\vkmember\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Vkmember;
+use app\modules\vkmember\models\Vkmember;
 
 /**
  * VkmemberSearch represents the model behind the search form about `app\models\Vkmember`.

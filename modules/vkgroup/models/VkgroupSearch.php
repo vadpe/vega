@@ -1,16 +1,16 @@
 <?php
 
-namespace app\models;
+namespace app\modules\vkgroup\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Vknew;
+use app\modules\vkgroup\models\Vkgroup;
 
 /**
- * VknewSearch represents the model behind the search form about `app\models\Vknew`.
+ * VkgroupSearch represents the model behind the search form about `app\models\Vkgroup`.
  */
-class VknewSearch extends Vknew
+class VkgroupSearch extends Vkgroup
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class VknewSearch extends Vknew
     public function rules()
     {
         return [
-            [['id', 'vk_id'], 'integer'],
-            [['create_date', 'vkgroup_url'], 'safe'],
+            [['id'], 'integer'],
+            [['url', 'description'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class VknewSearch extends Vknew
      */
     public function search($params)
     {
-        $query = Vknew::find();
+        $query = Vkgroup::find();
 
         // add conditions that should always apply here
 
@@ -60,11 +60,10 @@ class VknewSearch extends Vknew
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'vk_id' => $this->vk_id,
-            'create_date' => $this->create_date,
         ]);
 
-        $query->andFilterWhere(['like', 'vkgroup_url', $this->vkgroup_url]);
+        $query->andFilterWhere(['like', 'url', $this->url])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }
