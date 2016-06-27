@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\vknew\models;
+namespace app\modules\vkexplorer\models;
 
 use Yii;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\vkgroup\models;
+namespace app\modules\vkexplorer\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\vkgroup\models\Vkgroup;
+use app\modules\vkexplorer\models\Vkgroup;
 
 /**
  * VkgroupSearch represents the model behind the search form about `app\models\Vkgroup`.

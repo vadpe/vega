@@ -1,19 +1,19 @@
 <?php
 
-namespace app\modules\vkmember\controllers;
+namespace app\modules\vkexplorer\controllers;
 
 //use yii\web\Controller;
 use Yii;
-use app\modules\vkmember\models\Vkmember;
-use app\modules\vkmember\models\VkmemberSearch;
+use app\modules\vkexplorer\models\Vkgroup;
+use app\modules\vkexplorer\models\VkgroupSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * Default controller for the `vkmember` module
+ * Default controller for the `vkgroup` module
  */
-class DefaultController extends Controller
+class VkgroupController extends Controller
 {
     /**
      * @inheritdoc
@@ -37,16 +37,17 @@ class DefaultController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            
         ];
     }
 
     /**
-     * Lists all Vkmember models.
+     * Lists all Vkgroup models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new VkmemberSearch();
+        $searchModel = new VkgroupSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -56,7 +57,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Displays a single Vkmember model.
+     * Displays a single Vkgroup model.
      * @param integer $id
      * @return mixed
      */
@@ -68,16 +69,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * Creates a new Vkmember model.
+     * Creates a new Vkgroup model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Vkmember();
+        $model = new Vkgroup();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -86,7 +88,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Updates an existing Vkmember model.
+     * Updates an existing Vkgroup model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -105,7 +107,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * Deletes an existing Vkmember model.
+     * Deletes an existing Vkgroup model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -118,18 +120,28 @@ class DefaultController extends Controller
     }
 
     /**
-     * Finds the Vkmember model based on its primary key value.
+     * Finds the Vkgroup model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Vkmember the loaded model
+     * @return Vkgroup the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Vkmember::findOne($id)) !== null) {
+        if (($model = Vkgroup::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }    
+    }
+    
+    public function actionExplode() {
+      
+        $models = Vkgroup::find()->all();
+        foreach ($models as $model) {
+            $model->getMembers();
+        }
+        
+        return $this->redirect(['/vkexplorer/vkmember/index']);
+    }        
 }

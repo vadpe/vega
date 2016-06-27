@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\vkmember;
+namespace app\modules\vkexplorer;
 
 /**
- * vkmember module definition class
+ * vkexplorer module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\vkmember\controllers';
+    public $controllerNamespace = 'app\modules\vkexplorer\controllers';
 
     /**
      * @inheritdoc

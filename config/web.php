@@ -51,16 +51,8 @@ $config = [
     
     'modules' => [
         
-        'vkgroup' => [
-            'class' => 'app\modules\vkgroup\Module',
-        ],
-        
-        'vkmember' => [
-            'class' => 'app\modules\vkmember\Module',
-        ],
-        
-        'vknew' => [
-            'class' => 'app\modules\vknew\Module',
+        'vkexplorer' => [
+            'class' => 'app\modules\vkexplorer\Module',
         ],
     ],
     

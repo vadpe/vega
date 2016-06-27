@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\vknew\models;
+namespace app\modules\vkexplorer\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\vknew\models\Vknew;
+use app\modules\vkexplorer\models\Vknew;
 
 /**
  * VknewSearch represents the model behind the search form about `app\models\Vknew`.

@@ -52,7 +52,7 @@ class SiteController extends Controller
     {
         //return $this->render('index');
         //return $this->redirect(['vkgroup/index']);
-        return $this->redirect(['/vkgroup/default/index']);
+        return $this->redirect(['/vkexplorer/vkgroup/index']);
     }
 
     public function actionLogin()

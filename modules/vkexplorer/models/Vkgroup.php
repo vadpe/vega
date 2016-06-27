@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\vkgroup\models;
+namespace app\modules\vkexplorer\models;
 
 use Yii;
-use app\modules\vkmember\models\Vkmember;
-use app\modules\vknew\models\Vknew;
+use app\modules\vkexplorer\models\Vkmember;
+use app\modules\vkexplorer\models\Vknew;
 
 /**
  * This is the model class for table "vkgroup".
