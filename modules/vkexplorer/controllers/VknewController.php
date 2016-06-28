@@ -131,5 +131,12 @@ class VknewController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }    
+    }
+    
+    public function actionDeleteAll() {
+      
+        Vknew::deleteAll();
+        
+        return $this->redirect(['index']);
+    }
 }

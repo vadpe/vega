@@ -131,5 +131,13 @@ class VkmemberController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }    
+    }
+    
+    
+    public function actionDeleteAll() {
+      
+        Vkmember::deleteAll();
+        
+        return $this->redirect(['index']);
+    }
 }

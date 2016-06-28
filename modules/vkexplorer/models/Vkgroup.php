@@ -18,10 +18,12 @@ use app\modules\vkexplorer\models\Vknew;
  */
 class Vkgroup extends \yii\db\ActiveRecord
 {
+    public $started = 0;
+    
     /**
      * @inheritdoc
      */
-    public function getMembers() {
+    public function getMembers($started) {
         $version = '5.52';
         $page = 0;
         $limit = 1000;
@@ -39,6 +41,11 @@ class Vkgroup extends \yii\db\ActiveRecord
                 ->where(['vkgroup_url' => $this->url])
                 ->asArray()
                 ->all();
+        
+        $newInDb = Vknew::find()->count();
+        if ($started && $newInDb) {
+            Vknew::deleteAll();
+        }
         
         $curitems = array();
         foreach ($currecs as $rec) {
@@ -79,14 +86,15 @@ class Vkgroup extends \yii\db\ActiveRecord
             }
             
             if (count($newusers)) {
+                
                 Yii::$app->db
                     ->createCommand()
                     ->batchInsert(Vkmember::tableName(), array_keys(Vkmember::attributeLabels()), $newusers)
                     ->execute();
                 
-                if ($page === 0) {
-                    Vknew::deleteAll();
-                }
+                //if ($page === 0) {
+                //    Vknew::deleteAll();
+                //}
                 
                 Yii::$app->db
                     ->createCommand()

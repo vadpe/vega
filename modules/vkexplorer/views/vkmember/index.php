@@ -35,6 +35,11 @@ $this->title = 'Сводная таблица всех участников гр
     <p>
         <?php /*echo Html::a('Create Vkmember', ['create'], ['class' => 'btn btn-success'])*/ ?>
     </p>
+    
+    <p>
+        <?= Html::a('Очистить таблицу', ['delete-all'], ['class' => 'btn btn-danger']) ?>
+    </p>
+    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -69,4 +74,5 @@ $this->title = 'Сводная таблица всех участников гр
             ],
         ],
     ]); ?>
+    
 </div>

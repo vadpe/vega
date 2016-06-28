@@ -135,13 +135,72 @@ class VkgroupController extends Controller
         }
     }
     
-    public function actionExplode() {
+    public function actionUpdateUsers($id) {
       
+        $model = Vkgroup::findOne(['id' => $id]);
+        $model->getMembers(false);
+        
+        //Vkgroup::find()->
+                
+        return $this->redirect(['index']);
+    }    
+    
+    public function actionDeleteAll() {
+      
+        Vkgroup::deleteAll();
+        
+        return $this->redirect(['index']);
+    }
+    
+    //public $row = 0;
+    public function actionExplodeOne($id, $row) {
+
+        //static $row = 0;
+        
+        set_time_limit(1000);
+
+        $rowNum = Vkgroup::find()->count();
+        if (!$rowNum) {
+            return $this->redirect(['index']);
+        }
+        
+        $vkGroup = Vkgroup::findBySql('SELECT id FROM vkgroup ORDER BY id LIMIT ' . $row . ', 1')->one();
+        
+        $model = $this->findModel($vkGroup->id);
+        
+        //if ($row === 0) {
+        //    $model->started = 1;
+        //}
+        $model->getMembers((int)$row === 0);
+        
+        $row++;
+        
+        if ($row >= $rowNum) {
+            $row = 0;
+            return $this->redirect(['index']);
+        }
+        else {
+            $vkGroup = Vkgroup::findBySql('SELECT id FROM vkgroup ORDER BY id LIMIT ' . $row . ', 1')->one();
+            return $this->redirect(['explode-one', 'id' => $vkGroup->id, 'row' => $row]);
+        }
+    }
+
+    public function actionExplodeAll() {
+      /*
         $models = Vkgroup::find()->all();
         foreach ($models as $model) {
             $model->getMembers();
         }
         
         return $this->redirect(['/vkexplorer/vkmember/index']);
-    }        
+       */
+        
+        /*$rowNum = Vkgroup::find()->count();
+        if ($rowNum) {
+            return $this->redirect(['explode-one', 'id' => 0]);
+        }
+        else {
+            return $this->redirect(['index']);
+        }*/
+    }
 }

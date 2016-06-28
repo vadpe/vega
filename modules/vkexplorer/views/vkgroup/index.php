@@ -45,13 +45,38 @@ $this->title = 'Таблица групп ВК';
             //'id',
             'url:url',
             'description',
+            [
+                'attribute'			=> '',
+                'content'			=> 
+                function($model) {
+                    return Html::a('Обновить список пользователей группы', ['update-users', 'id' => $model->id], [
+                        'class' => 'btn btn-success',
+                        'data' => [
+                            /*'confirm' => 'Все группы и пользователи будут удалены!',*/
+                            'method' => 'post',
+                        ],
+                    ]);
+                },
+            ],            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
     <p>
-        <?= Html::a('Обновить БД пользователей для всех групп', ['explode'], ['class' => 'btn btn-primary']) ?>
-    </p>       
+        <?= Html::a('Обновить БД пользователей для всех групп', ['explode-one', 'id' => 0, 'row' => 0], ['class' => 'btn btn-primary']) ?>
+        
+    </p>
+    </p>
+    
+    <p>
+        <?= Html::a('Очистить таблицу', ['delete-all'/*, 'id' => $model->id*/], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Все группы и пользователи будут удалены!',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
     
 </div>
