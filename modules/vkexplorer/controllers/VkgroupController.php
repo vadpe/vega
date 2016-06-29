@@ -136,12 +136,11 @@ class VkgroupController extends Controller
     }
     
     public function actionUpdateUsers($id) {
-      
-        $model = Vkgroup::findOne(['id' => $id]);
-        $model->getMembers(false);
         
-        //Vkgroup::find()->
-                
+        $model = Vkgroup::findOne(['id' => $id]);
+        //$model->getMembers(false);
+        $model->getMembers1();
+        
         return $this->redirect(['index']);
     }    
     
