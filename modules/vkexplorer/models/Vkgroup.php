@@ -229,7 +229,7 @@ class Vkgroup extends \yii\db\ActiveRecord
     {
         return [
             'id'                => 'ID',
-            'url'               => 'Ссылка',
+            'url'               => 'Group ID',
             'description'       => 'Описание',
         ];
     }

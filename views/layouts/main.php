@@ -26,19 +26,20 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    NavBar::begin(/*[
+    NavBar::begin([
         'brandLabel' => 'Vega',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
-    ]*/);
+    ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Таблица групп ВК', 'url' => ['/vkexplorer/vkgroup/index']],
-            ['label' => 'Сводная таблица всех участников групп ВК', 'url' => ['/vkexplorer/vkmember/index']],
-            ['label' => 'Сводная таблица новых участников групп ВК (с момента последнего запуска)', 'url' => ['/vkexplorer/vknew/index']],
+            ['label' => 'Groups', 'url' => ['/vkexplorer/vkgroup/index']],
+            ['label' => 'Members', 'url' => ['/vkexplorer/vkmember/index']],
+            ['label' => 'New', 'url' => ['/vkexplorer/vknew/index']],
+            ['label' => 'About', 'url' => ['/vkexplorer/vknew/index']],
             //['label' => 'Home', 'url' => ['/site/index']],
             //['label' => 'About', 'url' => ['/site/about']],
             //['label' => 'Contact', 'url' => ['/site/contact']],

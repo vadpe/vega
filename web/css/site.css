@@ -1,6 +1,23 @@
 html,
 body {
     height: 100%;
+    background-color: lightyellow;
+    
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: /*#9d9d9d*/bisque;
+  font-weight: bold;
+  font-size: x-large;
+  font-family: monospace;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: lightyellow /*#f9f9f9*/;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: white;
 }
 
 .wrap {

@@ -49,7 +49,7 @@ $this->title = 'Таблица групп ВК';
                 'attribute'			=> '',
                 'content'			=> 
                 function($model) {
-                    return Html::a('Обновить список пользователей группы', ['update-users', 'id' => $model->id], [
+                    return Html::a('Update users', ['update-users', 'id' => $model->id], [
                         'class' => 'btn btn-success',
                         'data' => [
                             /*'confirm' => 'Все группы и пользователи будут удалены!',*/
