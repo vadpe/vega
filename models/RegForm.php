@@ -12,21 +12,22 @@ use Yii;
 use yii\base\Model;
 
 /**
- * Description of LoginForm
+ * Description of RegForm
  *
  * @author Vadim
  */
-class LoginForm extends Model
+class RegForm extends Model
 {
     //put your code here
     
     public $username;
+    public $email;
     public $password;
     
     public function rules()
     {
         return [
-            [['username', 'password'], 'required']
+            [['username', 'email', 'password'], 'required']
         ];
     }
 }

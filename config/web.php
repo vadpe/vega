@@ -5,7 +5,14 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    
     //'controllerNamespace' => '\controllers',
+    'name' => 'Yii2 приложение',
+    'layout' => 'basic',
+    'defaultRoute' => 'main/index',
+    'language' => 'ru_RU',
+    'charset' => 'UTF-8',
+    
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
